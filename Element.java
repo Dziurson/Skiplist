@@ -1,14 +1,26 @@
+/**
+ * @author: Jakub Dziwura
+ * 
+ * Node class for skiplist class. 
+ */
 package skiplist;
 import java.util.ArrayList;
 
 public class Element<K extends Comparable<K>,V>
 {
+    /* Value stored in node. */
     private V value;
+    /* Key, to comapre elements. */
     private K key;
-    private int elementLevel;    
+    /* Height of Element (Node). */
+    private int elementLevel;  
+    /* List of elements with higher key. */
     private ArrayList<Element<K,V>> nextEl;
+    /* List of elements with lower key. */
     private ArrayList<Element<K,V>> prevEl;    
     
+    /* Constructor gets key, value, and height, and create empty 
+       lists of previous and next nodes. */
     public Element(K key_t, V value_t, int elementLevel_t)
     {           
         value = value_t;
@@ -21,19 +33,21 @@ public class Element<K extends Comparable<K>,V>
             nextEl.add(null);
             prevEl.add(null);
         }
-    }    
+    } 
+    /* getValue() method returns value of Element (Node). */
     public V getValue()
     {
         return value;
-    }    
+    }   
+    /* getKey() method returns key of Element (Node). */
     public K getKey()
     {
         return key;
     }
+    /* getHeight() method returns height of Element (Node). */
     public int getHeight()
     {
         return nextEl.size();
-        //return elementLevel;
     }
     public ArrayList<Element<K,V>> getPrevEl()
     {
@@ -66,11 +80,6 @@ public class Element<K extends Comparable<K>,V>
     {
         value = null;
         key =  null;
-        /*for (int i = 0; i < elementLevel; i++)
-        {
-            nextEl.set(i,null);
-            prevEl.set(i,null);
-        }*/
         nextEl.clear();
         prevEl.clear();
     }
