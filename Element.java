@@ -49,26 +49,34 @@ public class Element<K extends Comparable<K>,V>
     {
         return nextEl.size();
     }
+    /* getPrevEl() method returns list of previous Elements (Nodes). */
     public ArrayList<Element<K,V>> getPrevEl()
     {
         return prevEl;
     }
+    /* getNextEl() method returns list of next Elements (Nodes). */
     public ArrayList<Element<K,V>> getNextEl()
     {
         return nextEl;
     }
+    /* getMaxHeight() method returns maximal possible height of Element (Node). */
     public int getMaxHeight()
     {
         return elementLevel;
     }
+    /* setElementNext(Element<K,V> e, int i) method gets Element (Node) as first 
+       parameter and height of next element. */
     public void setElementNext(Element<K,V> e, int i)
     {
         nextEl.set(i,e);
     }
+    /* The same as previous, for previous elements. */
     public void setElementPrev(Element<K,V> e, int i)
     {
         prevEl.set(i,e);
     }
+    /* replace(K key_t, V value_t) method changes key and value of Element (Node)
+       and returns actual value. */
     public V replace(K key_t, V value_t)
     {
         V vt = value;
@@ -76,6 +84,7 @@ public class Element<K extends Comparable<K>,V>
         value = value_t;
         return vt;
     }
+    /* method to clear node */
     public void clear()
     {
         value = null;
